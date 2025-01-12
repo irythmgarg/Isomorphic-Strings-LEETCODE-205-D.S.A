@@ -1,0 +1,42 @@
+Theory Explanation:
+Checking String Lengths:
+
+The first check ensures that the two strings have the same length. If they don't, they can't be isomorphic, so the function returns false.
+Mapping Characters:
+
+The function uses two unordered_map data structures (mp and mp1) to store the mappings between characters from string s to string b and vice versa.
+mp maps each character of s to a corresponding character in b, and mp1 does the reverse: mapping each character of b to the corresponding character in s.
+Iterating Through the Strings:
+
+The function iterates through each character of the strings.
+For each character in s, the function checks if it is already mapped to a different character in b using mp. If a mapping exists, it ensures the mapping is consistent.
+Similarly, for each character in b, the function ensures that it maps consistently back to s using mp1.
+Returning the Result:
+
+If all character mappings are consistent between the two strings, the function returns true, meaning the strings are isomorphic. Otherwise, it returns false.
+Space Complexity:
+Auxiliary Space:
+
+Two unordered_map data structures are used to store character mappings. Each map stores a maximum of n character mappings, where n is the length of the strings.
+Hence, the auxiliary space complexity is O(n), where n is the length of the strings.
+Final Space Complexity: O(n), where n is the length of the strings.
+
+Time Complexity:
+Iterating Through the Strings:
+
+The function iterates over both strings once, which takes O(n) time, where n is the length of the strings.
+Operations on unordered_map:
+
+Each operation (insertion and lookup) in an unordered_map takes O(1) time on average.
+So, each iteration of the loop takes O(1) time for checking and inserting into the maps.
+Final Time Complexity: O(n), where n is the length of the strings.
+Overall Complexity:
+Time Complexity: O(n), where n is the length of the strings.
+Space Complexity: O(n), where n is the length of the strings.
+This solution efficiently checks if the two strings are isomorphic by using hash maps, ensuring both time and space complexities are linear with respect to the input size.
+
+
+
+
+
+
