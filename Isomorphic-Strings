@@ -1,0 +1,39 @@
+class Solution {
+public:
+    // Function to check if two strings are isomorphic
+    bool isIsomorphic(string s, string b) {
+        // Step 1: If the lengths of the strings are not the same, return false
+        if (s.length() != b.length()) 
+            return false;
+        
+        // Step 2: Initialize two unordered maps to track character mappings
+        unordered_map<char, char> mp;  // Maps characters from 's' to 'b'
+        unordered_map<char, char> mp1; // Maps characters from 'b' to 's'
+        
+        // Step 3: Iterate through the strings
+        for (int i = 0; i < s.length(); i++) {
+            // Step 4: Check the first map ('s' to 'b')
+            if (mp.find(s[i]) != mp.end()) {
+                // If the character from 's' is already mapped, check consistency
+                if (mp[s[i]] != b[i]) 
+                    return false;
+            } else {
+                // Otherwise, create a new mapping
+                mp[s[i]] = b[i];
+            }
+
+            // Step 5: Check the second map ('b' to 's')
+            if (mp1.find(b[i]) != mp1.end()) {
+                // If the character from 'b' is already mapped, check consistency
+                if (mp1[b[i]] != s[i]) 
+                    return false;
+            } else {
+                // Otherwise, create a new mapping
+                mp1[b[i]] = s[i];
+            }
+        }
+
+        // Step 6: If all mappings are consistent, return true
+        return true;
+    }
+};
